@@ -32,10 +32,15 @@ light.position.set(10, 20, 30);
 light.target = house;
 scene.add(light);
 
+/*
 camera.position.set(9, 11, 13);
 camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 renderer.render(scene, camera);
+*/
+
+
+
 
 /*
 function animate() {
