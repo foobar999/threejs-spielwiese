@@ -31,7 +31,8 @@ function init() {
     // world
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xcccccc);
-    scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
+    // TODO fog später für Wolken/Nebel reinhacken
+    //scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
 
     var geometry = new THREE.CylinderGeometry(0, 10, 30, 4, 1);
     var material = new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true });
