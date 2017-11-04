@@ -1,18 +1,13 @@
 
 var container;
-
 var camera, controls, scene, renderer;
-
 var cross;
 
 init();
 animate();
 
-function init() {
-    camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.z = 500;
-
-    controls = new THREE.TrackballControls(camera);
+function createControls(camera){
+    var controls = new THREE.TrackballControls(camera);
 
     controls.rotateSpeed = 1.0;
     controls.zoomSpeed = 1.2;
@@ -27,7 +22,15 @@ function init() {
     controls.keys = [65, 83, 68];
 
     controls.addEventListener('change', render);
+    return controls;
+}
 
+function init() {
+    camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.z = 500;
+
+    controls = createControls(camera);
+    
     // world
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xcccccc);
