@@ -8,7 +8,8 @@ render(); // remove when using next line for animation loop (requestAnimationFra
 function init() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xcccccc);
-    scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
+    // TODO Fog einbauen zwecks Nebel / bewölkt^^
+    //scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
 
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
