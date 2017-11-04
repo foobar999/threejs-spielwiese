@@ -27,6 +27,23 @@ function createControls(camera){
 }
 
 
+function createHouse(houseSize){
+    var houseGeometry = new THREE.BoxGeometry(houseSize, houseSize, houseSize);
+    var houseMaterial = new THREE.MeshPhongMaterial({ambient: 0x050505, color: 0x724b33, specular: 0x555555, shininess: 30});
+    return new THREE.Mesh(houseGeometry, houseMaterial);
+}
+
+
+function createRoof(roofSize, roofHeight){
+    var roofRadius = roofSize/2*Math.sqrt(2); // "radius" ist hier Distanz Ecke-Mitte
+    var roofGeometry = new THREE.CylinderGeometry(0, roofRadius, roofHeight, 4, 1);
+    var roofMaterial = new THREE.MeshPhongMaterial({ambient: 0x050505, color: 0xc62411, specular: 0x555555, shininess: 30});
+    var roof = new THREE.Mesh(roofGeometry, roofMaterial);
+    roof.rotation.y += Math.PI/4;
+    return roof;
+}
+
+
 function init() {
     camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
     camera.position.z = 500;
@@ -39,39 +56,20 @@ function init() {
     // TODO fog später für Wolken/Nebel reinhacken
     //scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
 
-    /*
-    var geometry = new THREE.CylinderGeometry(0, 10, 30, 4, 1);
-    var material = new THREE.MeshPhongMaterial({color: 0xffffff, flatShading: true});
-
-    for (var i = 0; i < 500; i ++) {
-        var mesh = new THREE.Mesh(geometry, material);
-        mesh.position.x = (Math.random() - 0.5) * 1000;
-        mesh.position.y = (Math.random() - 0.5) * 1000;
-        mesh.position.z = (Math.random() - 0.5) * 1000;
-        mesh.updateMatrix();
-        mesh.matrixAutoUpdate = false;
-        scene.add(mesh);
-    }
-    */
-    
+    // füge Achsen ein
     scene.add(buildAxes(1000));
     
+    // Länge & Breite 
     var houseSize = 10;
-    var houseGeometry = new THREE.BoxGeometry(houseSize, houseSize, houseSize);
-    var houseMaterial = new THREE.MeshPhongMaterial({ambient: 0x050505, color: 0x0033ff, specular: 0x555555, shininess: 30});
-    var house = new THREE.Mesh(houseGeometry, houseMaterial);
+    var house = createHouse(houseSize);
     scene.add(house);
 
     // erzeuge Hausdach
-    var radius = houseSize/2*Math.sqrt(2);    // radius ist hier Distanz Ecke-Mitte
-    var height = 5;
-    var roofGeometry = new THREE.CylinderGeometry(0, radius, height, 4, 1);
-    var roof = new THREE.Mesh(roofGeometry, houseMaterial);
-    roof.position.set(0, 10, 0);
-    roof.rotation.y += Math.PI/4;
-    scene.add(roof);
+    var roofHeight = 5;
+    var roof = createRoof(houseSize, roofHeight);
+    roof.position.set(0, 7.5, 0);
+    scene.add(roof);    
     
-
     // lights
     var light = new THREE.DirectionalLight(0xffffff);
     light.position.set(1, 1, 1);
