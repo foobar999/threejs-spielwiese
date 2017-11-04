@@ -1,6 +1,5 @@
-if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-var container, stats;
+var container;
 
 var camera, controls, scene, renderer;
 
@@ -75,8 +74,6 @@ function init() {
     container = document.getElementById( 'container' );
     container.appendChild( renderer.domElement );
 
-    stats = new Stats();
-    container.appendChild( stats.dom );
 
     //
 
@@ -110,6 +107,5 @@ function animate() {
 function render() {
 
     renderer.render( scene, camera );
-    stats.update();
 
 }
