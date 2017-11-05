@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>walk2</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				background-color: #fff;
+				margin: 0px;
+				overflow: hidden;
+			}
+
+			#info {
+				font-family:Monospace;
+				text-align:center;
+				position: absolute;
+				top: 0px; width: 100%;
+			}
+            #weather_controls {
+				position: absolute;
+				top: 50px;
+                left: 50px;
+            }
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<div id="info">
+			<p>threejs</p>
+			<p>MOVE mouse &amp; press LEFT/A: rotate, MIDDLE/S: zoom, RIGHT/D: pan</p>
+		</div>
+        <div id="weather_controls">
+            <h4>Wettereffekte</h4>
+            <button id="sunshine">Let it shine!</button>
+        </div>
+        
+		<script src="libs/three.min.js"></script>
+		<script src="libs/TrackballControls.js"></script>
+        <script src="libs/axis.js"></script>
+
+        <!-- zum Ist-OpenGL-vorhanden?-Test -->
+		<!--<script src="js/Detector.js"></script>-->
+        <!-- zum Perf-Monitoring-->
+		<!--<script src="js/libs/stats.min.js"></script>-->
+
+		<script src="walk2.js"></script>
+	</body>
+</html>
