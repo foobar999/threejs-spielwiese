@@ -74,7 +74,20 @@ function init() {
     roof.position.set(0, 7.5, 0);
     scene.add(roof);    
     
+    // es werde licht!
+    var numlights = 3;
+    var lights = new Array(numlights).fill().map(() => new THREE.DirectionalLight(0xffffff));
+    lights[0].position.set(1, 2, 3);
+    lights[1].position.set(1, -2, 3);
+    lights[2].position.set(-1, -2, -3);
+    lights.forEach(function(light){
+        light.target = house;
+        scene.add(light);
+    });
+    
+    
     // lights
+    /*
     var light = new THREE.DirectionalLight(0xffffff);
     light.position.set(1, 1, 1);
     scene.add(light);
@@ -85,8 +98,8 @@ function init() {
     var light = new THREE.DirectionalLight(0x002288);
     light.position.set(-1, -1, -1);
     scene.add(light);
-
-
+    */
+    
     // renderer
     renderer = new THREE.WebGLRenderer({ antialias: false });
     renderer.setPixelRatio(window.devicePixelRatio);
