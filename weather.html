@@ -1,28 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>walk2</title>
+		<title>weather</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
-			body {
-				background-color: #fff;
-				margin: 0px;
-				overflow: hidden;
-			}
-
-			#info {
-				font-family:Monospace;
-				text-align:center;
-				position: absolute;
-				top: 0px; width: 100%;
-			}
-            #weather_controls {
-				position: absolute;
-				top: 50px;
-                left: 50px;
-            }
-		</style>
+            @import url("weather.css");
+       </style>
 	</head>
 	<body>
 		<div id="container"></div>
@@ -33,6 +17,8 @@
         <div id="weather_controls">
             <h4>Wettereffekte</h4>
             <button id="sunshine">Let it shine!</button>
+            <button id="wind">Let it wind!</button>
+            <button id="rain">Let it rain!</button>
         </div>
         
 		<script src="libs/three.min.js"></script>
@@ -44,6 +30,6 @@
         <!-- zum Perf-Monitoring-->
 		<!--<script src="js/libs/stats.min.js"></script>-->
 
-		<script src="walk2.js"></script>
+		<script src="weather.js"></script>
 	</body>
 </html>
