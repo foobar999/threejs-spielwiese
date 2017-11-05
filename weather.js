@@ -57,7 +57,11 @@ function init() {
     //scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
 
     // füge Achsen ein
-    scene.add(buildAxes(1000));
+    //scene.add(buildAxes(1000));
+    scene.add(new THREE.AxisHelper(1000));
+    
+    // kann auch die Achsen einzelner Objekte darstellen:
+    // roof.add(new THREE.AxisHelper(1000));
     
     // Länge & Breite 
     var houseSize = 10;
@@ -75,12 +79,13 @@ function init() {
     light.position.set(1, 1, 1);
     scene.add(light);
 
+    var light = new THREE.AmbientLight(0x222222);
+    scene.add(light);
+    
     var light = new THREE.DirectionalLight(0x002288);
     light.position.set(-1, -1, -1);
     scene.add(light);
 
-    var light = new THREE.AmbientLight(0x222222);
-    scene.add(light);
 
     // renderer
     renderer = new THREE.WebGLRenderer({ antialias: false });
